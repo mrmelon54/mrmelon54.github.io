@@ -10,27 +10,40 @@
 
     <div class="w3-panel w3-card w3-light-grey">
         <h4>HTML Example</h4>
-        <div class="w3-code htmlHigh notranslate"></div>
+        <div class="w3-code htmlHigh notranslate" id="htmlBlock"></div>
     </div>
 
     <div class="w3-panel w3-card w3-light-grey">
         <h4>CSS Example</h4>
-        <div class="w3-code cssHigh notranslate"></div>
+        <div class="w3-code cssHigh notranslate" id="cssBlock"></div>
     </div>
 
     <div class="w3-panel w3-card w3-light-grey">
         <h4>JS Example</h4>
-        <div class="w3-code jsHigh notranslate"></div>
+        <div class="w3-code jsHigh notranslate" id="jsBlock"></div>
     </div>
 
     <script src="/assets/js/w3codecolor.js"></script>
     <script>
         fetch("test.html").then(res=>{
           res.text().then(d=>{
-            alert(d)
+            document.getElementById("htmlBlock").innerHTML=escapeHTML(d);
+            w3CodeColor();
           })
         });
-        w3CodeColor();
+        fetch("test.css").then(res=>{
+          res.text().then(d=>{
+            document.getElementById("cssBlock").innerHTML=escapeHTML(d);
+            w3CodeColor();
+          })
+        });
+        fetch("test.js").then(res=>{
+          res.text().then(d=>{
+            document.getElementById("jsBlock").innerHTML=escapeHTML(d);
+            w3CodeColor();
+          })
+        });
+        var escapeHtml=u=>u.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g, "&#039;");
     </script>
 
 </body>
