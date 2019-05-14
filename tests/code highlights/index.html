@@ -26,20 +26,20 @@
     <script src="/assets/js/w3codecolor.js"></script>
     <script>
         fetch("test.html").then(res=>{
-          res.text().then(d=>{alert(escapeHTML(d));
-            document.getElementById("htmlBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";alert(d+escapeHTML(d))
+          res.text().then(d=>{
+            document.getElementById("htmlBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
             //w3CodeColor();
           })
         });
         fetch("test.css").then(res=>{
           res.text().then(d=>{
-            document.getElementById("cssBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";
+            document.getElementById("cssBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
             //w3CodeColor();
           })
         });
         fetch("test.js").then(res=>{
           res.text().then(d=>{
-            document.getElementById("jsBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";
+            document.getElementById("jsBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
             //w3CodeColor();
           })
         });
