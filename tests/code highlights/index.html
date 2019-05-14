@@ -27,20 +27,20 @@
     <script>
         fetch("test.html").then(res=>{
           res.text().then(d=>{
-            document.getElementById("htmlBlock").innerHTML=escapeHTML(d);
-            w3CodeColor();
+            document.getElementById("htmlBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";
+            //w3CodeColor();
           })
         });
         fetch("test.css").then(res=>{
           res.text().then(d=>{
-            document.getElementById("cssBlock").innerHTML=escapeHTML(d);
-            w3CodeColor();
+            document.getElementById("cssBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";
+            //w3CodeColor();
           })
         });
         fetch("test.js").then(res=>{
           res.text().then(d=>{
-            document.getElementById("jsBlock").innerHTML=escapeHTML(d);
-            w3CodeColor();
+            document.getElementById("jsBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";
+            //w3CodeColor();
           })
         });
         var escapeHtml=u=>u.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g, "&#039;");
