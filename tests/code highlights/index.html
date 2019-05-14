@@ -28,19 +28,19 @@
         fetch("test.html").then(res=>{
           res.text().then(d=>{
             document.getElementById("htmlBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
-            //w3CodeColor();
+            w3CodeColor();
           })
         });
         fetch("test.css").then(res=>{
           res.text().then(d=>{
             document.getElementById("cssBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
-            //w3CodeColor();
+            w3CodeColor();
           })
         });
         fetch("test.js").then(res=>{
           res.text().then(d=>{
             document.getElementById("jsBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
-            //w3CodeColor();
+            w3CodeColor();
           })
         });
         var escapeHtml=u=>u.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g, "&#039;");
