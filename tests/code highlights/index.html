@@ -27,7 +27,7 @@
     <script>
         fetch("test.html").then(res=>{
           res.text().then(d=>{
-            document.getElementById("htmlBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";
+            document.getElementById("htmlBlock").innerHTML="<pre>"+escapeHTML(d)+"</pre>";alert(d+escapeHTML(d))
             //w3CodeColor();
           })
         });
