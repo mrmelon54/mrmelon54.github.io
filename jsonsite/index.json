@@ -1,0 +1,44 @@
+{
+    "title": "MrMelon54",
+    "navbar": [{
+            "name": "Home",
+            "link": "/"
+        },
+        {
+            "name": "Projects",
+            "link": "/projects",
+            "items": [{
+                    "name": "Keep Talking and Nobody Explodes",
+                    "link": "/projects/theme/ktane",
+                    "items": [{
+                            "name": "KTaNE Solver",
+                            "link": "/projects/theme/ktane/ktane-solver"
+                        },
+                        {
+                            "name": "Animated Semaphore",
+                            "link": "/projects/theme/ktane/animated-semaphore"
+                        },
+                        {
+                            "name": "KTaNE Mods",
+                            "link": "/projects/theme/ktane-mods",
+                            "items": [{
+                                    "name": "Planets",
+                                    "link": "/projects/theme/ktane-mods/planets"
+                                },
+                                {
+                                    "name": "Colour Code",
+                                    "link": "/projects/theme/ktane-mods/colour-code"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Melon Bot",
+                    "link": "/projects/melon-bot"
+                },
+            ]
+        }
+    ],
+    "body":"Just use the navbar guys"
+}
