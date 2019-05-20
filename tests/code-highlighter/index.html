@@ -5,7 +5,13 @@
 <link rel="stylesheet" href="/assets/css/w3.css">
 
 <style>
-.w3-code {overflow-x:auto;}
+    .w3-code {
+        overflow-x: auto;
+    }
+
+    .w3-code pre {
+        margin: 0px;
+    }
 </style>
 
 <body class="w3-container">
@@ -16,38 +22,46 @@
 
     <div class="w3-panel w3-card w3-light-grey">
         <h4>HTML Example</h4>
-        <div class="w3-code htmlHigh notranslate" id="htmlBlock"></div>
+        <div class="w3-code htmlHigh notranslate" id="htmlBlock" contenteditable></div>
     </div>
 
     <div class="w3-panel w3-card w3-light-grey">
         <h4>CSS Example</h4>
-        <div class="w3-code cssHigh notranslate" id="cssBlock"></div>
+        <div class="w3-code cssHigh notranslate" id="cssBlock" contenteditable></div>
     </div>
 
     <div class="w3-panel w3-card w3-light-grey">
         <h4>JS Example</h4>
-        <div class="w3-code jsHigh notranslate" id="jsBlock"></div>
+        <div class="w3-code jsHigh notranslate" id="jsBlock" contenteditable></div>
     </div>
 
+    <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/w3codecolor.js"></script>
+    <script src="cursorControl.js"></script>
     <script>
-        fetch("test.html").then(res=>{
-          res.text().then(d=>{
-            document.getElementById("htmlBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
-            fetch("test.css").then(res=>{
-              res.text().then(d=>{
-                document.getElementById("cssBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
-                fetch("test.js").then(res=>{
-                  res.text().then(d=>{
-                    document.getElementById("jsBlock").innerHTML="<pre>"+escapeHtml(d)+"</pre>";
-                    w3CodeColor();
-                  })
+        fetch("test.html").then(res => {
+            res.text().then(d => {
+                $("#htmlBlock").html(escapeHtml(d).replace(/\n/g,'<br>').replace(/ /g,'&nbsp;'));
+                fetch("test.css").then(res => {
+                    res.text().then(d => {
+                        $("#cssBlock").html(escapeHtml(d).replace(/\n/g,'<br>').replace(/ /g,'&nbsp;'));
+                        fetch("test.js").then(res => {
+                            res.text().then(d => {
+                                $("#jsBlock").html(escapeHtml(d).replace(/\n/g,'<br>').replace(/ /g,'&nbsp;'));
+                                w3CodeColor();
+                            })
+                        })
+                    })
                 })
-              })
             })
-          })
         })
-        var escapeHtml=u=>u.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g, "&#039;");
+        var escapeHtml = u => u.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        $("#htmlBlock, #cssBlock, #jsBlock").on('blur', () => {
+            $("#htmlBlock").html(escapeHtml($("#htmlBlock").text()).replace(/\n/g,'<br>').replace(/ /g,'&nbsp;'));
+            $("#cssBlock").html(escapeHtml($("#cssBlock").text()).replace(/\n/g,'<br>').replace(/ /g,'&nbsp;'));
+            $("#jsBlock").html(escapeHtml($("#jsBlock").text()).replace(/\n/g,'<br>').replace(/ /g,'&nbsp;'));
+            w3CodeColor();
+        });
     </script>
 
 </body>
