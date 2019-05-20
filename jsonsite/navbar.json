@@ -1,0 +1,21 @@
+{
+    "navbar": [{
+            "name": "Home",
+            "link": ""
+        },
+        {
+            "name": "Projects",
+            "link": "projects",
+            "items": [{
+                    "name": "Keep Talking and Nobody Explodes",
+                    "link":"projects/theme/ktane"
+                },
+                {
+                    "name": "Melon Bot",
+                    "link": "projects/melon-bot"
+                }
+
+            ]
+        }
+    ]
+}
